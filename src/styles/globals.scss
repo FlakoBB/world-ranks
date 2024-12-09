@@ -1,0 +1,18 @@
+@use 'colors' as clr;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  min-height: 100dvh;
+  background-color: clr.$dark1;
+  color: clr.$grey2;
+}
