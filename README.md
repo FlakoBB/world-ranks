@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# World Ranks 🌎
 
-## Getting Started
+This project was created as part of a challenge from [DevChallenges.io](https://devchallenges.io). The application consumes an API that provides information about different countries and displays the data interactively and visually.
 
-First, run the development server:
+## Technologies Used 🛠️
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styles**: [SASS](https://sass-lang.com/)
+- **API**: [REST Countries API](https://restcountries.com/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Main Features ✨
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- List of countries with basic information.
+- Search and filter countries.
+- Detailed information view for each country.
+- Responsive design for optimal experience on all devices.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation and Usage 🚀
 
-## Learn More
+Follow these steps to set up and run the project on your local machine.
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone this repository:
+    ```bash
+    git clone https://github.com/FlakoBB/world-ranks.git
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Navigate to the project directory:
+    ```bash
+    cd world-ranks
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-## Deploy on Vercel
+4. Start the development server:
+    ```bash
+    npm run dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. Open your browser at http://localhost:3000 to see the application in action.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Follow Me
+**X:** [Flako_BB](https://www.x.com/Flako_BB/)
+
+**Instagram:** [flako_jbb](https://www.instagram.com/flako_jrbb/)
+
+**LinkedIn:** [Joseph Ryan](https://www.linkedin.com/in/josephryanbb/)
