@@ -1,0 +1,86 @@
+@use 'colors' as clr;
+
+.main {
+  min-height: 100dvh;
+  background-image: url('/hero-image-wr.jpg');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16rem;
+    
+    img {
+      width: 14rem;
+      height: auto;
+    }
+  }
+
+  .content {
+    max-width: 75rem;
+    margin-inline: auto;
+    background-color: clr.$dark1;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1.5px solid clr.$dark2;
+
+    .header {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 2rem;
+
+      .countries_found {
+        color: clr.$grey1;
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+
+      .search_bar {
+        display: flex;
+        align-items: stretch;
+        justify-content: start;
+        width: 22rem;
+        background-color: clr.$dark2;
+        border-radius: .8rem;
+        overflow: hidden;
+
+        button,
+        input {
+          background: none;
+          border: none;
+          outline: none;
+          height: 2.5rem;
+        }
+
+        button {
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-inline: .5rem;
+          cursor: pointer;
+
+          &:hover {
+            background-color: clr.$dark1;
+          }
+        }
+
+        input {
+          flex-grow: 1;
+          padding-inline: .5rem;
+          color: inherit;
+          font-size: 1rem;
+          font-weight: 500;
+
+          &::placeholder {
+            color: clr.$grey1;
+          }
+        }
+      }
+    }
+  }
+}
