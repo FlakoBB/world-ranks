@@ -1,39 +1,25 @@
 'use client'
 
+import { useEffect, useState } from 'react'
+import { get } from '@/services/countries'
 import CountriesList from '@/components/countriesList'
 import styles from '@/styles/mainPage.module.scss'
 
 export default function Home () {
-  const countries = [
-    {
-      flag: '/Logo.svg',
-      name: 'country 1',
-      pupulation: '100,000',
-      area: '5,000,000',
-      region: 'Americas'
-    },
-    {
-      flag: '/Logo.svg',
-      name: 'country 2',
-      pupulation: '100,000',
-      area: '5,000,000',
-      region: 'Americas'
-    },
-    {
-      flag: '/Logo.svg',
-      name: 'country 3',
-      pupulation: '100,000',
-      area: '5,000,000',
-      region: 'Americas'
-    },
-    {
-      flag: '/Logo.svg',
-      name: 'country h',
-      pupulation: '100,000',
-      area: '5,000,000',
-      region: 'Americas'
+  const [countries, setCountries] = useState([])
+  const [countriesFound, setCountriesFound] = useState(0)
+
+  const fetchCountries = async () => {
+    const response = await get.allCountries()
+    if (response) {
+      setCountries(response)
+      setCountriesFound(response.length)
     }
-  ]
+  }
+
+  useEffect(() => {
+    fetchCountries()
+  }, [])
 
   return (
     <main className={styles.main}>
@@ -42,7 +28,7 @@ export default function Home () {
       </div>
       <div className={styles.content}>
         <header className={styles.header}>
-          <p className={styles.countries_found}>Found 234 countries</p>
+          <p className={styles.countries_found}>Found {countriesFound} countries</p>
           <div className={styles.search_bar}>
             <button>
               <img src='/Search.svg' alt='Magnifying glass icon' />
