@@ -53,7 +53,7 @@
           background: none;
           border: none;
           outline: none;
-          height: 2.5rem;
+          height: 3rem;
         }
 
         button {
@@ -80,6 +80,33 @@
             color: clr.$grey1;
           }
         }
+      }
+    }
+
+    .list_container {
+      display: grid;
+      grid-template-columns: 3fr 9fr;
+      margin-top: 2rem;
+
+
+      // ! TEMPORAL STYLES
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 1.5rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: clr.$dark2;
+        }
+      }
+      .flag_image {
+        background-color: blanchedalmond;
+        width: 4rem;
+        height: 2.2rem;
+        border-radius: .8rem;
+        overflow: hidden;
       }
     }
   }

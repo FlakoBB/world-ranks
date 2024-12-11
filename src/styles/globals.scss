@@ -16,3 +16,8 @@ body {
   background-color: clr.$dark1;
   color: clr.$grey2;
 }
+
+::selection {
+  color: clr.$blue;
+  background: clr.$grey2;
+}
