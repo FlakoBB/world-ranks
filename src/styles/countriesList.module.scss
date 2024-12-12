@@ -2,7 +2,9 @@
 
 .table {
   width: 100%;
+  margin-bottom: 1rem;
   border-collapse: collapse;
+  border-bottom: 1px solid clr.$grey1;
 
   thead {
     tr {
@@ -47,6 +49,84 @@
           font-size: 1rem;
           font-weight: 400;
         }
+      }
+    }
+  }
+}
+
+.pagination_bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+
+  .previous_btn,
+  .next_btn {
+    width: 1.5rem;
+    height: 2rem;
+    background-color: clr.$dark2;
+    overflow: hidden;
+    border: none;
+    outline: none;
+    border-radius: .3rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: clr.$grey1;
+      color: clr.$grey2;
+
+      svg {
+        path {
+          stroke: clr.$grey2;
+        }
+      }
+    }
+
+    svg {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .previous_btn {
+    svg {
+      transform: rotate(90deg);
+    }
+  }
+
+  .next_btn {
+    svg {
+      transform: rotate(-90deg);
+    }
+  }
+
+  .pages_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+
+    .page_btn {
+      width: 1.5rem;
+      height: 2rem;
+      background-color: clr.$dark2;
+      color: clr.$grey2;
+      font-weight: 500;
+      font-size: .75rem;
+      border: none;
+      outline: none;
+      border-radius: .3rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: clr.$grey1;
+      }
+
+      &.current {
+        background-color: clr.$blue;
+        font-weight: 600;
       }
     }
   }
