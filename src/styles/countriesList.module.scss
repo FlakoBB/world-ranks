@@ -27,6 +27,37 @@
         background-color: clr.$dark2;
       }
 
+      &.loading {
+        &:hover {
+          background-color: clr.$dark1;
+        }
+
+        td {
+          &:nth-child(1) {
+            width: 8rem;
+          }
+
+          &:nth-child(2) {
+            width: 14rem;
+          }
+          
+          .text {
+            width: 80%;
+            height: 1.25rem;
+            border-radius: .8rem;
+            background-color: clr.$dark2;
+          }
+
+          .flag_image {
+            background-color: clr.$dark2;
+            
+            img {
+              display: none;
+            }
+          }
+        }
+      }
+
       td {
         padding-block: 1rem;
 
@@ -34,7 +65,6 @@
           width: 4.5rem;
           height: auto;
           aspect-ratio: 16 / 9;
-          background-color: clr.$grey1;
           border-radius: .5rem;
           overflow: hidden;
 
@@ -45,7 +75,7 @@
           }
         }
 
-        &.text {
+        .text {
           font-size: 1rem;
           font-weight: 400;
         }

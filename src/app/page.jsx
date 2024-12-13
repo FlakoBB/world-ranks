@@ -8,6 +8,7 @@ import styles from '@/styles/mainPage.module.scss'
 export default function Home () {
   const [countries, setCountries] = useState([])
   const [countriesFound, setCountriesFound] = useState(0)
+  const [sortCountriesBy, setSortCountriesBy] = useState('population')
 
   const fetchCountries = async () => {
     const response = await get.allCountries()
@@ -37,9 +38,24 @@ export default function Home () {
           </div>
         </header>
         <div className={styles.list_container}>
-          <aside>aside</aside>
+          <aside className={styles.menu}>
+            <div className={styles.field}>
+              <label className={styles.field_label}>Sort By</label>
+              <select className={styles.select_input} value={sortCountriesBy} onChange={(e) => setSortCountriesBy(e.target.value)}>
+                <option value='population'>Population</option>
+                <option value='area'>Area</option>
+                <option value='name'>Name</option>
+              </select>
+            </div>
+            <div className={styles.field}>
+              <label className={styles.field_label}>Region</label>
+            </div>
+            <div className={styles.field}>
+              <label className={styles.field_label}>Status</label>
+            </div>
+          </aside>
           <section>
-            <CountriesList countries={countries} />
+            <CountriesList countries={countries} sortBy={sortCountriesBy} />
           </section>
         </div>
       </div>

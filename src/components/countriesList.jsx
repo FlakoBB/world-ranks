@@ -2,20 +2,36 @@ import { useEffect, useState } from 'react'
 import { useTransitionRouter } from 'next-view-transitions'
 import styles from '@/styles/countriesList.module.scss'
 
-const CountriesList = ({ countries = [] }) => {
+const CountriesList = ({ countries = [], sortBy }) => {
   const countriesPerPage = 30
   const lastPage = Math.ceil(countries.length / countriesPerPage)
   const [currentPage, setCurrentPage] = useState(1)
   const [currentCountries, setCurrentCountries] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   const router = useTransitionRouter()
 
+  const sortList = () => {
+    switch (sortBy) {
+      case 'population':
+        return countries.sort((a, b) => b.population - a.population)
+      case 'area':
+        return countries.sort((a, b) => b.area - a.area)
+      case 'name':
+        return countries.sort((a, b) => a.name.common.localeCompare(b.name.common))
+      default:
+        return countries.sort((a, b) => b.population - a.population)
+    }
+  }
+
   useEffect(() => {
-    const countriesSorted = countries.sort((a, b) => b.population - a.population)
+    setIsLoading(true)
+    const countriesSorted = sortList()
     const startIndex = (currentPage - 1) * countriesPerPage
     const endIndex = startIndex + countriesPerPage
     setCurrentCountries([...countriesSorted.slice(startIndex, endIndex)])
-  }, [currentPage, countries])
+    setIsLoading(false)
+  }, [currentPage, countries, sortBy])
 
   const prevPage = () => {
     setCurrentPage(prev => {
@@ -55,19 +71,41 @@ const CountriesList = ({ countries = [] }) => {
         </thead>
         <tbody>
           {
-            currentCountries?.map((country, index) => (
-              <tr key={index} onClick={() => router.push('/country')}>
-                <td>
-                  <figure className={styles.flag_image}>
-                    <img src={country.flags.svg} alt='country flag' />
-                  </figure>
-                </td>
-                <td className={styles.text}>{country.name.common}</td>
-                <td className={styles.text}>{country.population.toLocaleString('en-US')}</td>
-                <td className={styles.text}>{country.area.toLocaleString('en-US')}</td>
-                <td className={styles.text}>{country.region}</td>
-              </tr>
-            ))
+            isLoading
+              ? (
+                  Array.from({ length: countriesPerPage }).map((_, index) => (
+                    <tr key={index} className={styles.loading}>
+                      <td><figure className={styles.flag_image} /></td>
+                      <td><p className={styles.text} /></td>
+                      <td><p className={styles.text} /></td>
+                      <td><p className={styles.text} /></td>
+                      <td><p className={styles.text} /></td>
+                    </tr>
+                  ))
+                )
+              : (
+                  currentCountries?.map((country, index) => (
+                    <tr key={index} onClick={() => router.push('/country')}>
+                      <td>
+                        <figure className={styles.flag_image}>
+                          <img src={country.flags.svg} alt='country flag' />
+                        </figure>
+                      </td>
+                      <td>
+                        <p className={styles.text}>{country.name.common}</p>
+                      </td>
+                      <td>
+                        <p className={styles.text}>{country.population.toLocaleString('en-US')}</p>
+                      </td>
+                      <td>
+                        <p className={styles.text}>{country.area.toLocaleString('en-US')}</p>
+                      </td>
+                      <td>
+                        <p className={styles.text}>{country.region}</p>
+                      </td>
+                    </tr>
+                  ))
+                )
           }
         </tbody>
       </table>

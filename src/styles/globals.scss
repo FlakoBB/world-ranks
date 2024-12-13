@@ -21,3 +21,12 @@ body {
   color: clr.$blue;
   background: clr.$grey2;
 }
+
+::-webkit-scrollbar {
+  width: .25rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: .3rem;
+  background-color: clr.$grey1;
+}
