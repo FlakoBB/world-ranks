@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { get } from '@/services/countries'
 import CountriesList from '@/components/countriesList'
 import styles from '@/styles/mainPage.module.scss'
+import CheckboxButton from '@/components/CheckboxButton'
 
 export default function Home () {
   const [countries, setCountries] = useState([])
@@ -40,15 +41,23 @@ export default function Home () {
         <div className={styles.list_container}>
           <aside className={styles.menu}>
             <div className={styles.field}>
-              <label className={styles.field_label}>Sort By</label>
-              <select className={styles.select_input} value={sortCountriesBy} onChange={(e) => setSortCountriesBy(e.target.value)}>
+              <label htmlFor='sortSelect' className={styles.field_label}>Sort By</label>
+              <select id='sortSelect' className={styles.select_input} value={sortCountriesBy} onChange={(e) => setSortCountriesBy(e.target.value)}>
                 <option value='population'>Population</option>
                 <option value='area'>Area</option>
                 <option value='name'>Name</option>
               </select>
             </div>
             <div className={styles.field}>
-              <label className={styles.field_label}>Region</label>
+              <span className={styles.field_label}>Region</span>
+              <div className={styles.checkbox_container}>
+                <CheckboxButton label='Americas' />
+                <CheckboxButton label='Antartic' isChecked />
+                <CheckboxButton label='africa' />
+                <CheckboxButton label='asia' />
+                <CheckboxButton label='Europe' isChecked />
+                <CheckboxButton label='oceania' />
+              </div>
             </div>
             <div className={styles.field}>
               <label className={styles.field_label}>Status</label>

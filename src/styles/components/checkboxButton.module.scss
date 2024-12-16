@@ -1,0 +1,18 @@
+@use '../colors' as clr;
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .4rem .8rem;
+  background-color: clr.$dark2;
+  color: clr.$grey1;
+  border: 1px solid clr.$grey1;
+  border-radius: .6rem;
+  cursor: pointer;
+
+  &.selected {
+    border: 1px solid clr.$grey2;
+    color: clr.$grey2;
+  }
+}
